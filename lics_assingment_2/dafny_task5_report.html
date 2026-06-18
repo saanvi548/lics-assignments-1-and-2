@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dafny Task 5 Report</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+h1 { color: #333; }
+code { background: #f0f0f0; padding: 2px 4px; }
+section { margin-bottom: 40px; }
+</style>
+</head>
+<body>
+
+<h1>Dafny Verification Report – Task 5</h1>
+
+<section>
+<h2>Task 1: Absolute Value Function</h2>
+
+<h3>Preconditions</h3>
+<ul>
+<li><code>true</code> (no preconditions required)</li>
+</ul>
+
+<h3>Postconditions</h3>
+<ul>
+<li>Returned value is non-negative.</li>
+<li>Returned value equals either <code>x</code> or <code>-x</code>.</li>
+</ul>
+
+<h3>Loop Invariants</h3>
+<p>No loop used in this method.</p>
+
+<h3>Test Results</h3>
+<ul>
+<li>Input: 5 → Output: 5 ✔️</li>
+<li>Input: -10 → Output: 10 ✔️</li>
+<li>Input: 0 → Output: 0 ✔️</li>
+<li>No verification failures.</li>
+</ul>
+</section>
+
+<section>
+<h2>Task 2: FindFirstNegative</h2>
+
+<h3>Preconditions</h3>
+<ul>
+<li><code>a != null</code></li>
+<li><code>a.Length >= 0</code></li>
+</ul>
+
+<h3>Postconditions</h3>
+<ul>
+<li><code>-1 <= index < a.Length</code></li>
+<li>If <code>index == -1</code>, then all elements are non-negative.</li>
+<li>If <code>index >= 0</code>, then <code>a[index]</code> is negative and all earlier elements are non-negative.</li>
+</ul>
+
+<h3>Loop Invariants</h3>
+<ul>
+<li><code>0 <= i <= a.Length</code></li>
+<li><code>forall k :: 0 <= k < i ==> a[k] >= 0</code></li>
+</ul>
+
+<h3>Test Results</h3>
+<ul>
+<li>Array: [] → Output: -1 ✔️</li>
+<li>Array: [5,10,15,20,25] → Output: -1 ✔️</li>
+<li>Array: [5,10,-3,20,-1] → Output: 2 ✔️</li>
+<li>Array: [-10] → Output: 0 ✔️</li>
+<li>No verification failures for this version.</li>
+</ul>
+</section>
+
+</body>
+</html>
